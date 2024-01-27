@@ -1,3 +1,4 @@
+<% if enhanced_cart.length > 0 %>
 <section class="cart-show">
 
   <header class="page-header">
@@ -50,3 +51,7 @@
   </div>
 
 </section>
+<% else %>
+  <div class="alert alert-danger mt-5" role="alert">Cart is empty</div>
+  <%= link_to("Home", root_path, class: "btn btn-success") %>
+<% end %>
