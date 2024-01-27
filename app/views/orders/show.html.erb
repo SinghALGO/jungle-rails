@@ -1,12 +1,38 @@
 <section class="orders-show">
 
-  <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-  </header>
-
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
+  <section class="cart-show">
+
+  <header class="page-header">
+    <h1>My Order</h1>
+  </header>
+
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th >Name</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Item Price</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @result.each do |item| %>
+          <%= render 'item', product: item %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Total amount for the order: $<%= @order.total_cents/100 %></p>
+  <p>E-mail: <%= @order.email %></p>
+  
+
+</section>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
