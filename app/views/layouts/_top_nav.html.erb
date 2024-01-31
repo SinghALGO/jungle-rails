@@ -83,6 +83,19 @@ const gnr = () => {
   };
   const title = document.querySelector("header.hero");
   title.addEventListener("dblclick", gnr);
-  
+  // link to the About page
+    const aboutLink = document.createElement("a");
+    aboutLink.href = "<%= about_path %>";
+    aboutLink.className = "nav-link";
+    aboutLink.textContent = "About";
+
+    // Create list item and append the link to it
+    const aboutListItem = document.createElement("li");
+    aboutListItem.className = "nav-item";
+    aboutListItem.appendChild(aboutLink);
+
+    // Append the list item to the existing navigation
+    const navbarNav = document.querySelector(".navbar-nav.me-auto");
+    navbarNav.appendChild(aboutListItem);
 })()
   </script>
